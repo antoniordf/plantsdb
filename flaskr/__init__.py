@@ -13,7 +13,7 @@ def create_app(test_config=None):
         response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
         return response
 
-    @app.route('/plants')
+    @app.route('/plants', methods=['GET', 'POST'])
     def get_plants():
         page = request.args.get('page', 1, type=int)
         start = (page - 1) * 10
